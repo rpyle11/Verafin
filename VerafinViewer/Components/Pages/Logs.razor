@@ -1,0 +1,39 @@
+﻿@page "/logs"
+
+@attribute [StreamRendering]
+@using Models
+@using Microsoft.AspNetCore.Components.Sections
+<PageTitle>Logs</PageTitle>
+
+<SectionContent SectionName="SubTitle">Verafin Logs</SectionContent>
+
+<div class="mt-2 mb-2 dateleft">
+<div class="d-flex flex-row">
+
+    <div class="dateholder">
+        <label for="StartDatePicker" class="datelabel">Start Date</label>
+        <TelerikDatePicker T="DateTime" Size="sm" Rounded="md" Id="StartDatePicker" Format="MM/dd/yyyy" ValueChanged="@(StartDateChanged)" Value="@StartDate"></TelerikDatePicker>
+    </div>
+    <div>
+        <label for="EndDatePicker" class="datelabel">End Date</label>
+        <TelerikDatePicker T="DateTime" Size="sm" Rounded="md" Id="EndDatePicker" Format="MM/dd/yyyy" ValueChanged="@(EndDateChanged)" Value="@EndDate"></TelerikDatePicker>
+    </div>
+
+</div>
+</div>
+<div class="divgrid">
+    <TelerikLoaderContainer OverlayThemeColor="dark" Visible="@ShowLoader" Text="Loading..." ThemeColor="primary" LoaderType="LoaderType.InfiniteSpinner">
+
+    </TelerikLoaderContainer>
+
+
+    <TelerikGrid Data="@LogData" Height="100%" Pageable="true" Sortable="true" Groupable="true" Resizable="true" Reorderable="true" PageSize="20">
+        <GridColumns>
+            <GridColumn Field="@(nameof(LogsDto.Id))" Width="120px"/>
+            <GridColumn Field="@(nameof(LogsDto.DateInserted))" Title="Date" />
+            <GridColumn Field="@(nameof(LogsDto.ProcessMessage))" Title="Message" />
+            <GridColumn Field="@(nameof(LogsDto.MessageType))" Title="Message Type" />
+        </GridColumns>
+    </TelerikGrid>
+
+</div>

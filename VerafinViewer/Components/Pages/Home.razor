@@ -1,0 +1,29 @@
+﻿@page "/"
+@page "/dashboard"
+
+@attribute [StreamRendering]
+@using Microsoft.AspNetCore.Components.Sections
+@using Models
+
+<PageTitle>Daily Dashboard</PageTitle>
+
+<SectionContent SectionName="SubTitle">Verafin Daily - @ProcessedList!.Count files processed today</SectionContent>
+
+<div class="divgrid">
+    <TelerikLoaderContainer OverlayThemeColor="dark" Visible="@ShowLoader" Text="Loading..." ThemeColor="primary" LoaderType="LoaderType.InfiniteSpinner" >
+      
+    </TelerikLoaderContainer>
+
+    <TelerikGrid Data="@ProcessedList" Height="100%" Pageable="true" Sortable="true" Groupable="true" Resizable="true" Reorderable="true" PageSize="20" Size="sm" EnableLoaderContainer="true">
+        <GridColumns>
+            <GridColumn Field="@(nameof(FilesProcessedDto.Id))" Width="100px" />
+            <GridColumn Field="@(nameof(FilesProcessedDto.DateCopied))" Title="Date" Width="170px" />
+            <GridColumn Field="@(nameof(FilesProcessedDto.Pickup))" Title="Location" />
+            <GridColumn Field="@(nameof(FilesProcessedDto.FileName))" Title="File name" />
+            <GridColumn Field="@(nameof(FilesProcessedDto.NewFileName))" Title="New file name" />
+        </GridColumns>
+    </TelerikGrid>
+
+</div>
+
+

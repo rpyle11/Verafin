@@ -1,0 +1,42 @@
+﻿@page "/countcomparison"
+
+@attribute [StreamRendering]
+@using Models
+@using Microsoft.AspNetCore.Components.Sections
+
+<PageTitle>Count Comparison</PageTitle>
+
+<SectionContent SectionName="SubTitle">Verafin File Counts</SectionContent>
+
+<div class="mt-2 mb-2 dateleft">
+    <div class="d-flex flex-row">
+
+        <div class="dateholder">
+            <label for="StartDatePicker" class="datelabel">Start Date</label>
+            <TelerikDatePicker T="DateTime" Size="sm" Rounded="md" Id="StartDatePicker" Format="MM/dd/yyyy" ValueChanged="@(StartDateChanged)" Value="@StartDate"></TelerikDatePicker>
+        </div>
+        <div>
+            <label for="EndDatePicker" class="datelabel">End Date</label>
+            <TelerikDatePicker T="DateTime" Size="sm" Rounded="md" Id="EndDatePicker" Format="MM/dd/yyyy" ValueChanged="@(EndDateChanged)" Value="@EndDate"></TelerikDatePicker>
+        </div>
+
+    </div>
+</div>
+<div class="divgrid">
+    <TelerikLoaderContainer OverlayThemeColor="dark" Visible="@ShowLoader" Text="Loading..." ThemeColor="primary" LoaderType="LoaderType.InfiniteSpinner">
+
+    </TelerikLoaderContainer>
+
+
+    <TelerikGrid Data="@CountList" Height="100%" Sortable="true" Pageable="true"  Groupable="true" Resizable="true" Reorderable="true" PageSize="20">
+        <GridColumns>
+            <GridColumn Field="@(nameof(FileCountDto.Id))" Width="100px" />
+            <GridColumn Field="@(nameof(FileCountDto.DateInserted))" Title="Date" Width="170px" />
+            <GridColumn Field="@(nameof(FileCountDto.PickupLocation))" Title="Pickup Location" />
+            <GridColumn Field="@(nameof(FileCountDto.PickupLocationCount))" Title="Files Found" Width="125px" />
+            <GridColumn Field="@(nameof(FileCountDto.CopiedCount))" Title="Files Copied" Width="125px" />
+        </GridColumns>
+    </TelerikGrid>
+
+</div>
+

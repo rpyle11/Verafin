@@ -1,0 +1,15 @@
+﻿.divgrid {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.dateholder {
+    margin-right: 2em;
+}
+
+.dateleft{
+    margin-left: 1em;
+}
+.datelabel{
+    font-size: .85em;
+}

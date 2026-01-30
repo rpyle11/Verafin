@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="VerafinFileMover.Tests/VerafinFileMover.Tests.csproj" Id="2aac69fc-64e7-42de-9422-617f034d6257" />
+  <Project Path="VerafinFileMover/VerafinFileMover.csproj" Id="d7308fcd-77fc-4cd5-ad2a-b6736d413611" />
+  <Project Path="VerafinViewer.Tests/VerafinViewer.Tests.csproj" Id="a6c5d784-d82f-4e03-b2ce-b80d02de2081" />
+  <Project Path="VerafinViewer/VerafinViewer.csproj" Id="ce0aa8d4-d567-4cbe-9065-671ffb25efb4" />
+</Solution>
