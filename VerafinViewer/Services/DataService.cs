@@ -7,7 +7,7 @@ namespace VerafinViewer.Services
 {
     public class DataService(VerafinFileMoverContext context, ILogService logService) : IDataService
     {
-        public async Task<List<FilesProcessedDto>?> DailyFilesProcessed(string appUser)
+        public async Task<List<FilesProcessedDto>?> DailyFilesProcessed(string? appUser)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace VerafinViewer.Services
             return null;
         }
 
-        public async Task<List<FileCountDto>?> GetFileCount(DateParameters parameters, string appUser)
+        public async Task<List<FileCountDto>?> GetFileCount(DateParameters parameters, string? appUser)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace VerafinViewer.Services
             return null;
         }
 
-        public async Task<List<LogsDto>?> GetLogs(DateParameters parameters, string appUser)
+        public async Task<List<LogsDto>?> GetLogs(DateParameters parameters, string? appUser)
         {
             try
             {
